@@ -1,7 +1,8 @@
 (defun ea-on-delete (frame)
-  (clipboard-kill-ring-save
-   (point-min)
-   (point-max))
+  (f-write (buffer-string) 'utf-8 "~/.emacs_anywhere/clipboard")
+  ;; (clipboard-kill-ring-save
+  ;;  (point-min)
+  ;;  (point-max))
   (kill-buffer "*Emacs Anywhere*"))
 
 (defun ea-hook ()

@@ -5,8 +5,8 @@ EA=$HOME/.emacs_anywhere
 
 shared_install () {
     mkdir -p $EA/bin
-    cp -Rf $ROOT_ABS_PATH/emacs_anywhere.el $EA/emacs_anywhere.el
-    cp -Rf $ROOT_ABS_PATH/bin/emacstask $EA/bin/emacstask
+    ln -s $ROOT_ABS_PATH/emacs_anywhere.el $EA/emacs_anywhere.el
+    ln -s $ROOT_ABS_PATH/bin/emacstask $EA/bin/emacstask
 }
 
 case $OSTYPE in
@@ -19,7 +19,7 @@ case $OSTYPE in
         ;;
     "linux-gnu")
         shared_install
-        cp -Rf $ROOT_ABS_PATH/bin/linux $EA/bin/run
+        ln -s $ROOT_ABS_PATH/bin/linux $EA/bin/run
         ;;
     *)
         echo This operating system is\'nt currently supported

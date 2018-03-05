@@ -1,7 +1,11 @@
 #!/bin/bash
 
-window=$( xdotool getactivewindow )
+window=$( xdotool getwindowfocus )
 
 $HOME/.emacs_anywhere/bin/emacstask
 
-xdotool windowactivate --sync $window key --clearmodifiers ctrl+v
+xdotool windowfocus --sync $window
+xclip -sel clip $HOME/.emacs_anywhere/clipboard
+xdotool key --clearmodifiers ctrl+v
+
+rm $HOME/.emacs_anywhere/clipboard
